@@ -18,10 +18,12 @@ var navbarCollapse = document.querySelector('.navbar-collapse');
 
 navbarCollapse.addEventListener('show.bs.collapse', function() {
   navbar.classList.add('bg-black');
+  navbar.style.marginTop = '0'; 
 });
 
 navbarCollapse.addEventListener('hide.bs.collapse', function() {
   if (!navbar.classList.contains('show')) {
     navbar.classList.remove('bg-black');
+    navbar.style.marginTop = '0'; 
   }
 });

@@ -12,6 +12,8 @@
     }
 
     .navbar-toggler:not(.collapsed) {
-      margin-top: 70px;
+      margin-top: 0 !important; 
     }
   }
+
+  
