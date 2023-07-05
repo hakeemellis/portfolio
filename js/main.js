@@ -14,11 +14,12 @@
 // For Nav Bar changing color when click in Mobile //
 
 var navbar = document.querySelector('.navbar');
+var navbarCollapse = document.querySelector('.navbar-collapse');
 
-document.querySelector('.navbar-toggler').addEventListener('click', function() {
-  if (navbar.classList.contains('bg-black')) {
-    navbar.classList.remove('bg-black');
-  } else {
-    navbar.classList.add('bg-black');
-  }
+navbarCollapse.addEventListener('show.bs.collapse', function() {
+  navbar.classList.add('bg-black');
+});
+
+navbarCollapse.addEventListener('hide.bs.collapse', function() {
+  navbar.classList.remove('bg-black');
 });
