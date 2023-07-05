@@ -13,7 +13,7 @@
 
 // For Nav Bar changing color when click in Mobile //
 
-var navbar = document.querySelector('.navbar');
+var navbar = document.querySelector('.navbar-expand-lg');
 var navbarCollapse = document.querySelector('.navbar-collapse');
 
 navbarCollapse.addEventListener('show.bs.collapse', function() {
