@@ -10,3 +10,15 @@
       navbar.classList.remove('bg-black');
     }
   });
+
+// For Nav Bar changing color when click in Mobile //
+
+var navbar = document.querySelector('.navbar');
+
+document.querySelector('.navbar-toggler').addEventListener('click', function() {
+  if (navbar.classList.contains('bg-black')) {
+    navbar.classList.remove('bg-black');
+  } else {
+    navbar.classList.add('bg-black');
+  }
+});
