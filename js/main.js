@@ -21,5 +21,7 @@ navbarCollapse.addEventListener('show.bs.collapse', function() {
 });
 
 navbarCollapse.addEventListener('hide.bs.collapse', function() {
-  navbar.classList.remove('bg-black');
+  if (!navbar.classList.contains('show')) {
+    navbar.classList.remove('bg-black');
+  }
 });
