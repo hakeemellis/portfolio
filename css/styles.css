@@ -3,4 +3,15 @@
 .bg-black {
     background-color: black;
   }
-  
+
+  /* Edit for Mobile Nav Bar when Collapsed */
+
+  @media (max-width: 767px) {
+    .navbar-collapse {
+      background-color: black;
+    }
+
+    .navbar-toggler:not(.collapsed) {
+      margin-top: 70px;
+    }
+  }
