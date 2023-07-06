@@ -6,7 +6,7 @@
 
   /* Edit for Mobile Nav Bar when Collapsed */
 
-  @media (max-width: 767px) {
+  @media (max-width: 1024px) {
     .navbar-collapse {
       background-color: black;
     }
