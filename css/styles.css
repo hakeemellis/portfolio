@@ -14,6 +14,29 @@
     .navbar-toggler:not(.collapsed) {
       margin-top: 0 !important; 
     }
+  
+
+  .navbar-collapse .navbar-nav {
+    margin-left: 195px; /* Center the items */
+    display: table; /* Enable horizontal centering */
+    float: none; /* Remove any existing float */
+  }
+
+  .navbar-collapse .navbar-nav .nav-item .nav-link {
+    font-family: "Times New Roman", Times, serif;
+    text-transform: uppercase;
+    font-weight: 10px;
+    letter-spacing: 0.4em;
+    text-align: center;
+    display: block;
+  }
+
+  }
+
+  /* NavBar Margin for Desktop */
+
+  .navbarmarginleft {
+    margin-left: -60px;
   }
 
   
