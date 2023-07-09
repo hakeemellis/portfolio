@@ -12,7 +12,7 @@
     margin-top: 0 !important; 
   }
   .navbar-collapse .navbar-nav {
-    margin-left: 195px; /* Center the items */
+    margin-left: 145px; /* Center the items */
     display: table; /* Enable horizontal centering */
     float: none; /* Remove any existing float */
   }
@@ -29,9 +29,13 @@
     width: 100vw;
     left: 0;
   }
+  
 }
 
 /* NavBar Margin for Desktop */
-.navbarmarginleft {
-  margin-left: -60px;
+@media (min-width: 1025px) {
+  .navbarmarginleft {
+    margin-left: -60px;
+  }
 }
+
