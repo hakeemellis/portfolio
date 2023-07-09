@@ -58,7 +58,7 @@
   height: 100vh; /* Set the height to 100% of the viewport height */
 }
 
-.hero .container {
+.hero-container {
   height: 100%; /* Set the container height to 100% to fill the hero */
   display: flex;
   flex-direction: column;
