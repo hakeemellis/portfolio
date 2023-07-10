@@ -1,10 +1,14 @@
 /* FOR MY NAV */
 
 /*Turning Nav Bar Black while Scrolling */
+
 .bg-black {
-  background-color: black;
+  background-color: black !important;
 }
 
+.navbar {
+  transition: background-color 0.3s ease; /* Add transition effect for background color */
+}
 
 /* Edit for Mobile Nav Bar when Collapsed */
 @media (max-width: 1024px) {
