@@ -33,3 +33,21 @@ navbarCollapse.addEventListener('hide.bs.collapse', function() {
     console.log('Navbar collapse hidden');
   }
 });
+
+
+// For Nav Bar changing hamburger menu icon with smooth transition when clicked in Mobile //
+var navbarToggler = document.querySelector('.navbar-toggler');
+var navbarTogglerIcon = document.querySelector('.navbar-toggler-icon');
+
+navbarToggler.addEventListener('click', function() {
+  navbarToggler.classList.toggle('active');
+  if (navbarToggler.classList.contains('active')) {
+    navbarTogglerIcon.style.transition = 'transform 0.3s';
+    navbarTogglerIcon.style.transform = 'rotate(90deg)';
+    navbarTogglerIcon.style.borderWidth = '4px';
+  } else {
+    navbarTogglerIcon.style.transition = 'transform 0.3s';
+    navbarTogglerIcon.style.transform = 'rotate(0deg)';
+    navbarTogglerIcon.style.borderWidth = '3px';
+  }
+});
