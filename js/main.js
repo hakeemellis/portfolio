@@ -35,7 +35,7 @@ navbarCollapse.addEventListener('hide.bs.collapse', function() {
 });
 
 
-// For Nav Bar changing hamburger menu icon with smooth transition when clicked in Mobile //
+// Rotating Navbar for Mobile //
 var navbarToggler = document.querySelector('.navbar-toggler');
 var navbarTogglerIcon = document.querySelector('.navbar-toggler-icon');
 
