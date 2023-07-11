@@ -10,6 +10,48 @@
   transition: background-color 0.3s ease; /* Add transition effect for background color */
 }
 
+/* NavBar Margin for Desktop */
+@media (min-width: 1025px) {
+  
+  .navbarmarginleft {
+    margin-left: -60px;
+  }
+
+}
+
+/* FOR MY BODY */
+
+/* Hero Banner*/
+
+.hero {
+  height: 100vh; /* Set the height to 100% of the viewport height */
+}
+
+.hero-container {
+  height: 100%; /* Set the container height to 100% to fill the hero */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* Image for About Me Section */
+
+.image-container {
+  padding: 10px;
+  display: inline-block;
+  position: relative;
+}
+
+.image-container img {
+  display: block;
+  border-radius: 50%;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+/* MOBILE CSS */
 
 /* Edit for Mobile Nav Bar when Collapsed */
 @media (max-width: 1024px) {
@@ -44,46 +86,24 @@
     left: 0;
   }
 
-}
 
+/* EDIT FOR MOBILE BODY */
 
-/* NavBar Margin for Desktop */
-@media (min-width: 1025px) {
-  
-  .navbarmarginleft {
-    margin-left: -60px;
-  }
+/* About Me Section */
 
-}
-
-
-/* FOR MY BODY */
-
-/* Hero Banner*/
-
-.hero {
-  height: 100vh; /* Set the height to 100% of the viewport height */
-}
-
-.hero-container {
-  height: 100%; /* Set the container height to 100% to fill the hero */
+.row {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  text-align: center;
+  margin: auto;
 }
 
-
-/* Image for About Me Section */
-
-.image-container {
-  padding: 10px;
-  display: inline-block;
-  position: relative;
+img {
+  max-width: 100%;
+  max-height: fit-content;
+  margin: auto;
 }
+  
 
-.image-container img {
-  display: block;
-  border-radius: 50%;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
