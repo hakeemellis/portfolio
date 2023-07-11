@@ -32,6 +32,7 @@ window.addEventListener('scroll', function() {
 });
 
 
+
 // FOR MOBILE ONLY //
 
 // For Nav Bar changing color when clicked in Mobile //
