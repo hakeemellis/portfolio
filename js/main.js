@@ -15,6 +15,24 @@ window.addEventListener('scroll', function() {
   }
 });
 
+// About Me Section Fade-In JS
+
+window.addEventListener('scroll', function() {
+  var aboutSection = document.querySelector('.about-me-section');
+  var sectionTop = aboutSection.offsetTop;
+  var sectionHeight = aboutSection.offsetHeight;
+  var windowTop = window.pageYOffset;
+  var windowHeight = window.innerHeight;
+
+  if (windowTop > sectionTop - windowHeight + sectionHeight / 2 && windowTop < sectionTop + sectionHeight) {
+    aboutSection.classList.add('fade-in');
+  } else {
+    aboutSection.classList.remove('fade-in');
+  }
+});
+
+
+// FOR MOBILE ONLY //
 
 // For Nav Bar changing color when clicked in Mobile //
 var navbar = document.querySelector('.navbar-expand-lg');

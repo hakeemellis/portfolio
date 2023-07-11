@@ -50,6 +50,17 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
+/* Fade Effect CSS for About Me */
+
+.about-me-section {
+  opacity: 0;
+  transition: opacity 1.5s;
+}
+
+.about-me-section.fade-in {
+  opacity: 1;
+}
+
 
 /* MOBILE CSS */
 
