@@ -87,7 +87,7 @@ figcaption {
 }
 
 
-/* Portfolio Live Snippet Styling */
+/* Portfolio Filter Button Styling */
 
 .filter-button {
   border: none;
@@ -103,48 +103,7 @@ figcaption {
   color: #fff;
 }
 
-.portfolio-item {
-  display: none;
-}
-
-.portfolio-section {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-.portfolio-heading {
-  margin-bottom: 20px;
-}
-
-.portfolio-filter {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.more-button-container {
-  text-align: center;
-}
-
-.more-button {
-  border: none;
-  background: none;
-  padding: 8px 16px;
-  margin-top: 20px;
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-/* Portfolio Item Styling */
+/* Portfolio Items Styling with Card Body */
 
 .portfolio-item {
   flex-basis: 300px;
@@ -182,6 +141,42 @@ figcaption {
 .portfolio-item a {
   text-decoration: none;
   color: #000;
+}
+
+.portfolio-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+
+.portfolio-filter {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Portfolio More Button Styling */
+
+.more-button-container {
+  text-align: center;
+}
+
+.more-button {
+  border: none;
+  background: none;
+  padding: 8px 16px;
+  margin-top: 20px;
+  border-radius: 20px;
+  cursor: pointer;
 }
 
 

@@ -15,7 +15,7 @@ window.addEventListener('scroll', function() {
   }
 });
 
-// About Me Section Fade-In JS
+// About Me Section Fade-In JS //
 
 window.addEventListener('scroll', function() {
   var aboutSection = document.querySelector('.about-me-section');
@@ -32,40 +32,20 @@ window.addEventListener('scroll', function() {
 });
 
 
-// Portfolio Live Snippet Filter Code
+// Portfolio Live Snippet Filter Code //
 
 var filterButtons = document.querySelectorAll('.filter-button');
 var portfolioItems = document.querySelectorAll('.portfolio-item');
 var moreButton = document.getElementById('moreButton');
+var initialVisibleItems = 4; // Number of initial visible items
 
-// Set "All" filter as active by default
+// To set "All" filter option as active by default
 filterButtons[0].classList.add('active');
 
-// Show initial 4 items
-for (var i = 0; i < portfolioItems.length; i++) {
-  if (i < 4) {
-    portfolioItems[i].classList.add('show');
-  }
-}
+// Show initial set of items
+showItems('all', initialVisibleItems);
 
-// More button click event
-moreButton.addEventListener('click', function () {
-  var hiddenItems = document.querySelectorAll('.portfolio-item:not(.show)');
-
-  // Show hidden items
-  hiddenItems.forEach(function (item, index) {
-    if (index < 4) {
-      item.classList.add('show');
-    }
-  });
-
-  // Hide more button if no more items
-  if (document.querySelectorAll('.portfolio-item:not(.show)').length === 0) {
-    moreButton.style.display = 'none';
-  }
-});
-
-// Filter button click event
+// Filter change
 filterButtons.forEach(function (button) {
   button.addEventListener('click', function () {
     var filter = button.getAttribute('data-filter');
@@ -79,7 +59,7 @@ filterButtons.forEach(function (button) {
     button.classList.add('active');
 
     // Show items based on the filter
-    showItems(filter);
+    showItems(filter, initialVisibleItems);
 
     // Show initial set of hidden items when filter changes
     moreButton.style.display = 'block';
@@ -87,18 +67,35 @@ filterButtons.forEach(function (button) {
 });
 
 // Function to show/hide items based on filter
-function showItems(filter) {
-  portfolioItems.forEach(function (item) {
+function showItems(filter, visibleItemCount) {
+  portfolioItems.forEach(function (item, index) {
     if (filter === 'all' || item.classList.contains(filter)) {
-      item.style.display = 'block';
+      item.style.display = index < visibleItemCount ? 'block' : 'none';
     } else {
       item.style.display = 'none';
     }
   });
 }
 
+// More button click event
+moreButton.addEventListener('click', function () {
+  var hiddenItems = document.querySelectorAll('.portfolio-item:not(.show)');
 
+  // Show hidden items
+  hiddenItems.forEach(function (item, index) {
+    if (index < initialVisibleItems) {
+      item.classList.add('show');
+      item.style.display = 'block';
+    }
+  });
 
+  // Hide more button if no more items
+  if (document.querySelectorAll('.portfolio-item:not(.show)').length === 0) {
+    moreButton.style.display = 'none';
+  }
+});
+
+// End of the extension code //
 
 
 
