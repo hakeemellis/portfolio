@@ -239,6 +239,13 @@ img {
   max-height: fit-content;
   margin: auto;
 }
+
+
+/* Portfolio Card Body Centered */
+
+.portfolio-item {
+  flex-basis: calc(33.33% - 20px);
+}
   
 
 }

@@ -36,50 +36,16 @@ window.addEventListener('scroll', function() {
 
 var filterButtons = document.querySelectorAll('.filter-button');
 var portfolioItems = document.querySelectorAll('.portfolio-item');
-
-// Set "All" filter as active by default
-filterButtons[0].classList.add('active');
-
-filterButtons.forEach(function (button) {
-  button.addEventListener('click', function () {
-    var filter = button.getAttribute('data-filter');
-
-    // Remove active class from all buttons
-    filterButtons.forEach(function (btn) {
-      btn.classList.remove('active');
-    });
-
-    // Add active class to clicked button
-    button.classList.add('active');
-
-    // Filter portfolio items based on data-filter attribute
-    portfolioItems.forEach(function (item) {
-      if (filter === 'all' || item.classList.contains(filter)) {
-        item.style.display = 'block';
-      } else {
-        item.style.display = 'none';
-      }
-    });
-  });
-});
-
-// Show all portfolio items by default
-portfolioItems.forEach(function (item) {
-  item.style.display = 'block';
-});
-
-// Follow Up to that Code Above
-
-var filterButtons = document.querySelectorAll('.filter-button');
-var portfolioItems = document.querySelectorAll('.portfolio-item');
 var moreButton = document.getElementById('moreButton');
 
 // Set "All" filter as active by default
 filterButtons[0].classList.add('active');
 
 // Show initial 4 items
-for (var i = 0; i < 4; i++) {
-  portfolioItems[i].classList.add('show');
+for (var i = 0; i < portfolioItems.length; i++) {
+  if (i < 4) {
+    portfolioItems[i].classList.add('show');
+  }
 }
 
 // More button click event
@@ -98,6 +64,40 @@ moreButton.addEventListener('click', function () {
     moreButton.style.display = 'none';
   }
 });
+
+// Filter button click event
+filterButtons.forEach(function (button) {
+  button.addEventListener('click', function () {
+    var filter = button.getAttribute('data-filter');
+
+    // Remove active class from all buttons
+    filterButtons.forEach(function (btn) {
+      btn.classList.remove('active');
+    });
+
+    // Add active class to clicked button
+    button.classList.add('active');
+
+    // Show items based on the filter
+    showItems(filter);
+
+    // Show initial set of hidden items when filter changes
+    moreButton.style.display = 'block';
+  });
+});
+
+// Function to show/hide items based on filter
+function showItems(filter) {
+  portfolioItems.forEach(function (item) {
+    if (filter === 'all' || item.classList.contains(filter)) {
+      item.style.display = 'block';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+}
+
+
 
 
 
