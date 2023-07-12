@@ -32,6 +32,35 @@ window.addEventListener('scroll', function() {
 });
 
 
+// Portfolio Live Snippet Filter Code
+
+var filterButtons = document.querySelectorAll('.filter-button');
+  var portfolioItems = document.querySelectorAll('.portfolio-item');
+
+  filterButtons.forEach(function(button) {
+    button.addEventListener('click', function() {
+      var filter = button.getAttribute('data-filter');
+
+      // Remove active class from all buttons
+      filterButtons.forEach(function(btn) {
+        btn.classList.remove('active');
+      });
+
+      // Add active class to clicked button
+      button.classList.add('active');
+
+      // Filter portfolio items based on data-filter attribute
+      portfolioItems.forEach(function(item) {
+        if (filter === 'all' || item.classList.contains(filter)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+
+
 
 // FOR MOBILE ONLY //
 
