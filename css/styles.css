@@ -168,13 +168,14 @@ figcaption {
 
 .more-button-container {
   text-align: center;
+  width: 100%;
 }
 
 .more-button {
   border: none;
   background: none;
   padding: 8px 16px;
-  margin-top: 20px;
+  margin: 20px auto;
   border-radius: 20px;
   cursor: pointer;
 }
