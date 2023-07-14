@@ -14,7 +14,7 @@
 @media (min-width: 1025px) {
   
   .navbarmarginleft {
-    margin-left: -102px;
+    margin-left: -123px;
   }
 
 }
@@ -30,8 +30,8 @@
 /* Nav Title Headings */
 
 .nav-title-heading {
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 20px;
+  font-family: 'Merriweather', serif;
+  font-size: 19px;
 }
 
 /* FOR MY BODY */
@@ -48,6 +48,17 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.hero-title {
+  font-family: 'Merriweather', serif;
+  font-weight: bold;
+  font-size: 40px; 
+}
+
+.hero-sub {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
 }
 
 /*About Me Section Edits */
