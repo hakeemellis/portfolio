@@ -25,6 +25,7 @@
   font-family: "Noto Sans JP" , sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.2em;
+  cursor: pointer;
 }
 
 /* Nav Title Headings */
