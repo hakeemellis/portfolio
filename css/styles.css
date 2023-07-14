@@ -19,10 +19,19 @@
 
 }
 
+/* Nav Name Page Font */
+
 .nav-page-font {
   font-family: "Noto Sans JP" , sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.2em;
+}
+
+/* Nav Title Headings */
+
+.nav-title-heading {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 20px;
 }
 
 /* FOR MY BODY */
