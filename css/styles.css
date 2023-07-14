@@ -14,9 +14,15 @@
 @media (min-width: 1025px) {
   
   .navbarmarginleft {
-    margin-left: -60px;
+    margin-left: -102px;
   }
 
+}
+
+.nav-page-font {
+  font-family: "Noto Sans JP" , sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
 }
 
 /* FOR MY BODY */
