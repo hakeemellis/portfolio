@@ -15,6 +15,82 @@ window.addEventListener('scroll', function() {
   }
 });
 
+
+// For NavBar Section to Change Automatically pending where you are //
+// eg. Scrolling through About Me //
+
+  // Add smooth scrolling to all links
+  var links = document.querySelectorAll("a");
+
+  links.forEach(function(link) {
+    link.addEventListener("click", function(event) {
+      // Make sure this.hash has a value before overriding default behavior
+      if (this.hash !== "") {
+        // Prevent default anchor click behavior
+        event.preventDefault();
+
+        // Store hash
+        var hash = this.hash;
+
+        // Using the scrollIntoView method to scroll smoothly to the specified section
+        document.querySelector(hash).scrollIntoView({
+          behavior: "smooth"
+        });
+      }
+    });
+  });
+
+  // Add active class to navbar item based on scroll position
+  window.addEventListener("scroll", function() {
+    var scrollDistance = window.pageYOffset;
+
+    // Assign active class to navbar items based on scroll position
+    var sections = document.querySelectorAll(".page-section");
+
+    sections.forEach(function(section) {
+      var sectionTop = section.offsetTop;
+      var sectionHeight = section.offsetHeight;
+      if (scrollDistance >= sectionTop && scrollDistance < sectionTop + sectionHeight) {
+        // Remove active class from all navbar items
+        document.querySelectorAll(".navbar-nav a").forEach(function(navItem) {
+          navItem.classList.remove("active");
+        });
+
+        // Get the corresponding navbar item and add active class
+        var targetLink = document.querySelector('a[href="#' + section.id + '"]');
+        targetLink.classList.add("active");
+      }
+    });
+  });
+
+
+// Hero Banner Welcome Typing //
+
+var typingElements = document.querySelectorAll('.typing-effect');
+var viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+
+typingElements.forEach(function(element) {
+  var position = element.getBoundingClientRect().top;
+
+  if (position < viewportHeight) {
+    element.classList.add('start-typing');
+  } else {
+    element.classList.remove('start-typing');
+  }
+});
+
+window.dispatchEvent(new Event('scroll'));
+
+
+// Super Mario JS Activation within Hero Banner //
+
+var button = document.querySelector('.mario-button');
+
+button.addEventListener('click', function() {
+  button.classList.add('start-animation');
+});
+
+
 // About Me Section Fade-In JS //
 
 window.addEventListener('scroll', function() {
