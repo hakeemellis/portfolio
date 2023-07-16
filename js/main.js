@@ -90,6 +90,19 @@ button.addEventListener('click', function() {
   button.classList.add('start-animation');
 });
 
+// To Change Super Mario Button depending on Device Screen Size //
+
+window.addEventListener('resize', function() {
+  var startButton = document.getElementById('startButton');
+  if (window.innerWidth < 1024) {
+    startButton.classList.remove('btn-lg');
+    startButton.classList.add('btn-sm');
+  } else {
+    startButton.classList.remove('btn-sm');
+    startButton.classList.add('btn-lg');
+  }
+});
+
 
 // About Me Section Fade-In JS //
 
