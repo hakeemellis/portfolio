@@ -1,0 +1,367 @@
+<html>
+
+    <head>
+        <title>Hakeem Ellis</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="/css/styles.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        <script src="https://kit.fontawesome.com/0520afe110.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap" rel="stylesheet">
+    </head>
+  
+  <!--FOR NAVIGATION CONTENT-->
+    <header>
+
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+          
+          <div class="container-fluid">
+            <a href="/index.html" class="navbar-brand ms-0 nav-page-font"><strong>H.Ellis</strong></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-center navbarmarginleft nav-title-heading" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#about-me">About Me</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#portfolio">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#contact-me">Contact Me</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </nav>
+
+      </header>
+    
+    <!--END OF NAVIGATION CONTENT-->
+
+    <!--START FOR MAIN CONTENT-->
+      <body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+        <!--Hero Banner-->
+        <div id="home" class="hero text-white text-center d-flex align-items-center hero-container page-section">
+          <video id="bgVideo" autoplay loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
+            <source src="video/ab.mp4" type="video/mp4">
+            <source src="path/to/video.webm" type="video/webm">
+            Your browser does not support the video tag.
+          </video>
+          <h1 class="display-4 hero-title typing-effect" style="position: relative; z-index: 1;">Welcome to My Portfolio</h1>
+          <p class="lead hero-sub" style="position: relative; z-index: 1;">Explore my work and projects</p>
+          <a href="#about-me">
+            <button id="startButton" class="btn btn-dark btn-oudescriptiontline-light btn-lg mario-button rounded-5" style="position: relative; z-index: 1;">Push to Start</button>
+          </a>
+        </div>     
+        <!--Hero Banner-->
+        
+        <!--About Me Section-->
+        <div id="about-me" class="about-me-container page-section">
+        <br>
+        <div class="container">
+          <div class="row about-me-section">
+            <div class="col-md-4 image-container">
+              <img src="images/Photo.jpg" height="300" width="300" alt="Portrait Photo" class="rounded-4">
+            </div>
+            <div class="col-md-8">
+              <div>
+                <h2><b>About Me</b></h2>
+                <br>
+                <p class="about-me-description"> I'm Hakeem Ellis, an experienced web developer that has a passion for creation. 
+                  I specialize in creating captivating websites that aims to blend design with functionality. 
+                  <br>
+                  <br>
+                  I have a strong foundation in coding languages like HTML, CSS and JavaScript; alongside the other technologies below, all with the aim 
+                  to bring visions to life. Let's collaborate and turn your digital ideas into remarkable online experiences!
+                  <br>
+                  <br>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <!--About Me Section-->
+        
+
+        <!--Technologies I've Used Hero Banner with Carousel-->
+        <div class="hero-banner">
+          <div id="carouselIcons" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+
+              <div class="carousel-item active">
+                <div class="icon-container d-flex justify-content-center">
+                  <figure>
+                    <center>
+                    <img src="images/About Me Icons/html.svg" alt="SVG Icon 1" class="icon" loading="auto">
+                    <figcaption>HTML</figcaption>
+                    </center>
+                  </figure>
+                  <figure>
+                    <center>
+                    <img src="images/About Me Icons/css3.svg" alt="SVG Icon 2" class="icon" loading="auto">
+                    <figcaption>CSS3</figcaption>
+                    </center>
+                  </figure>
+                  <figure>
+                    <center>
+                    <img src="images/About Me Icons/jsicon.svg" alt="SVG Icon 3" class="icon" loading="auto">
+                    <figcaption>JavaScript</figcaption>
+                    </center>
+                  </figure>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="icon-container d-flex justify-content-center">
+                  <figure>
+                    <center>
+                    <img src="images/About Me Icons/github4.svg" alt="SVG Icon 2" class="icon" loading="auto">
+                    <figcaption>Github</figcaption>
+                    </center>
+                  </figure>
+                  <figure>
+                    <center>
+                    <img src="images/About Me Icons/node2.svg" alt="SVG Icon 3" class="icon" loading="auto">
+                    <figcaption>Node.js</figcaption>
+                    </center>
+                  </figure>
+                  <figure>
+                    <center>
+                    <img src="images/About Me Icons/googleanalytics.svg" alt="SVG Icon 2" class="icon" loading="auto">
+                    <figcaption>Google Analytics</figcaption>
+                    </center>
+                  </figure>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="icon-container d-flex justify-content-center">
+                  <figure>
+                    <center>
+                    <img src="images/About Me Icons/shopify2.svg" alt="SVG Icon 3" class="icon" loading="auto">
+                    <figcaption>Shopify</figcaption>
+                    </center>
+                  </figure>
+                  <figure>
+                    <center>
+                    <img src="images/About Me Icons/wordpress.svg" alt="SVG Icon 2" class="icon" loading="auto">
+                    <figcaption>Wordpress</figcaption>
+                    </center>
+                  </figure>
+                  <figure>
+                    <center>
+                    <img src="images/About Me Icons/api2.svg" alt="SVG Icon 3" class="icon" loading="auto">
+                    <figcaption>API</figcaption>
+                    </center>
+                  </figure>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="icon-container d-flex justify-content-center">
+
+                  <figure>
+                    <center>
+                    <img src="images/About Me Icons/xd.svg" alt="SVG Icon 2" class="icon" loading="auto">
+                    <figcaption>Adobe XD</figcaption>
+                    </center>
+                  </figure>
+                  <figure>
+                    <center>
+                    <img src="images/About Me Icons/photoshop.svg" alt="SVG Icon 3" class="icon" loading="auto">
+                    <figcaption>Adobe Photoshop</figcaption>
+                    </center>
+                  </figure>
+                  <figure>
+                    <center>
+                    <img src="images/About Me Icons/illustrator.svg" alt="SVG Icon 2" class="icon" loading="auto">
+                    <figcaption>Adobe illustratior</figcaption>
+                    </center>
+                  </figure>
+
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="icon-container d-flex justify-content-center">
+
+                  <figure>
+                    <center>
+                    <img src="images/About Me Icons/aftereffects.svg" alt="SVG Icon 3" class="icon" loading="auto">
+                    <figcaption>Adobe After Effects</figcaption>
+                    </center>
+                  </figure>
+
+                </div>
+              </div>
+
+            </div>
+            <button class="carousel-control-prev d-none d-lg-block" type="button" data-bs-target="#carouselIcons" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next d-none d-lg-block" type="button" data-bs-target="#carouselIcons" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+          
+        </div>   
+        <!--Technologies I've Used Hero Banner with Carousel-->
+        
+        
+        
+        <!--Portfolio Section-->
+        <div class="card page-section" id="portfolio">
+        <div class="card-body">
+        <h2 class="center"><b>Portfolio</b></h2>
+        <br>
+        <br>
+        <div class="portfolio-filter">
+          <button class="filter-button active" data-filter="all">All</button>
+          <button class="filter-button" data-filter="shopify">Shopify</button>
+          <button class="filter-button" data-filter="wordpress">Wordpress</button>
+          <!-- Add more filter buttons as needed -->
+        </div>
+        
+        <div class="portfolio-section">
+          <div class="portfolio-item shopify">
+            <div class="card">
+              <img src="images/Projects/travelthrift.jpeg" alt="Shopify Preview" class="card-img-top rounded-circle" style="width: 150px; height: 150px;">
+              <div class="card-body">
+                <h3>Travel Thrift</h3>
+                <a href="https://hakeemellis.github.io/travelthrift" target="_blank">View Live</a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="portfolio-item wordpress">
+            <div class="card">
+              <img src="path/to/wordpress-preview.jpg" alt="WordPress Preview" class="card-img-top rounded-circle" style="width: 150px; height: 150px;">
+              <div class="card-body">
+                <h3>WordPress Project</h3>
+                <a href="https://github.io/wordpress-project" target="_blank">View Live</a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="portfolio-item wordpress">
+            <div class="card">
+              <img src="path/to/wordpress-preview.jpg" alt="WordPress Preview" class="card-img-top rounded-circle" style="width: 150px; height: 150px;">
+              <div class="card-body">
+                <h3>WordPress Project</h3>
+                <a href="https://github.io/wordpress-project" target="_blank">View Live</a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="portfolio-item wordpress">
+            <div class="card">
+              <img src="path/to/wordpress-preview.jpg" alt="WordPress Preview" class="card-img-top rounded-circle" style="width: 150px; height: 150px;">
+              <div class="card-body">
+                <h3>WordPress Project</h3>
+                <a href="https://github.io/wordpress-project" target="_blank">View Live</a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="portfolio-item wordpress">
+            <div class="card">
+              <img src="path/to/wordpress-preview.jpg" alt="WordPress Preview" class="card-img-top rounded-circle" style="width: 150px; height: 150px;">
+              <div class="card-body">
+                <h3>WordPress Project</h3>
+                <a href="https://github.io/wordpress-project" target="_blank">View Live</a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="portfolio-item wordpress">
+            <div class="card">
+              <img src="path/to/wordpress-preview.jpg" alt="WordPress Preview" class="card-img-top rounded-circle" style="width: 150px; height: 150px;">
+              <div class="card-body">
+                <h3>WordPress Project</h3>
+                <a href="https://github.io/wordpress-project" target="_blank">View Live</a>
+              </div>
+            </div>
+          </div>
+          <!-- Add more portfolio items -->
+        </div>
+        <!--Portfolio Section-->
+        
+        <!--Additional Portfolio Section (for the MORE BUTTON)-->
+        <div class="more-button-container">
+          <button id="moreButton" class="more-button">More</button>
+        </div>
+        <!--Additional Portfolio Section (for the MORE BUTTON)-->
+        </div>
+        </div>
+
+        <br>
+        <br>
+        
+        <!--Contact Me Form-->
+        <section class="contact-section page-section" id="contact-me">
+
+          <div class="contact-form rounded">
+            <h2 class="contact-heading">Contact Me</h2>
+            <form>
+              <div class="row mb-3">
+                <div class="col">
+                  <label for="firstName" class="form-label">First Name</label>
+                  <input type="text" class="form-control" id="firstName" required>
+                </div>
+                <div class="col">
+                  <label for="lastName" class="form-label">Last Name</label>
+                  <input type="text" class="form-control" id="lastName" required>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="email" required>
+              </div>
+              <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" id="message" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+          </div>
+          
+        </section>
+        <!--Contact Me Form-->
+        
+        
+      </body>
+
+    <!--END OF MAIN CONTENT-->
+
+    <footer class="hero-banner bg-primary text-white py-4">
+      <div class="container text-center">
+        <div class="social-icons m-0">
+          <a href="https://www.linkedin.com/in/hakeem-ellis/" target="_blank" class="social-icon"><i class="fa-brands fa-linkedin fa-bounce fa-2xl" style="color: #ffffff;"></i></a>
+          &nbsp;
+          <a href="https://github.com/hakeemellis" target="_blank" class="social-icon"><i class="fa-brands fa-square-github fa-bounce fa-2xl" style="color: #ffffff;"></i></a>
+        </div>
+        <p class="footer-text m-0"><b>All rights reserved &copy; 2023 Hakeem Ellis</b></p>
+      </div>
+    </footer>
+    <!--Footer Section (last lap)-->    
+      
+
+    <script src="/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+</html>
