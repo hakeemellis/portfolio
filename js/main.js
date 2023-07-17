@@ -104,6 +104,27 @@ window.addEventListener('resize', function() {
 });
 
 
+// To Swap Hero Banner Video for Static Wallpaper IF //
+// Video fails to Autoplay//
+
+var video = document.getElementById("bgVideo");
+
+    // Check if autoplay is supported
+    var autoplaySupported = ("autoplay" in video) || (typeof video.webkitPlaysinline !== "undefined");
+
+    if (!autoplaySupported) {
+      // Hide the video element
+      video.style.display = "none";
+
+      // Set a static background image
+      var heroBanner = document.getElementById("home");
+      heroBanner.style.backgroundImage = "url('/images/Projects/ab1.jpg')";
+      heroBanner.style.backgroundSize = "cover";
+      heroBanner.style.backgroundPosition = "center";
+      heroBanner.style.opacity = "0.95";
+    }
+
+
 // About Me Section Fade-In JS //
 
 window.addEventListener('scroll', function() {
