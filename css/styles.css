@@ -62,6 +62,15 @@
   font-weight: 300;
 }
 
+
+.hero-background {
+  background-image: url('/images/Projects/brick.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 92%;
+}
+
+
 /* Text within the Hero Banner */
 
 .typing-effect {
