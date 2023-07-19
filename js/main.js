@@ -1,3 +1,5 @@
+document.addEventListener('DOMContentLoaded', function() {
+
 // For Navigation Bar Transparency // 
 window.addEventListener('scroll', function() {
   var navbar = document.querySelector('.navbar');
@@ -245,4 +247,6 @@ navbarToggler.addEventListener('click', function() {
     navbarTogglerIcon.style.transform = 'rotate(0deg)';
     navbarTogglerIcon.style.borderWidth = '3px';
   }
+});
+
 });
