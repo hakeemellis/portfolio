@@ -1,6 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
+  
 
-// For Navigation Bar Transparency // 
+  // Hide the loading screen
+  var loadingScreen = document.querySelector('.loading-screen');
+  loadingScreen.style.display = 'none';
+
+
+  // For Navigation Bar Transparency // 
 window.addEventListener('scroll', function() {
   var navbar = document.querySelector('.navbar');
   var heroSection = document.querySelector('.hero');

@@ -50,6 +50,10 @@
     <!--START FOR MAIN CONTENT-->
       <body data-spy="scroll" data-target=".navbar" data-offset="50">
 
+        <div class="loading-screen">
+          <div class="loading-text">Loading...</div>
+        </div>
+
         <!--Hero Banner-->
         <div id="home" class="hero text-white text-center d-flex align-items-center hero-container page-section">
           <video id="bgVideo" autoplay loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
@@ -231,12 +235,13 @@
         <div class="portfolio-filter">
           <button class="filter-button active" data-filter="all">All</button>
           <button class="filter-button" data-filter="static">Static/Custom Built</button>
-          <button class="filter-button" data-filter="wordpress">Wordpress</button>
+          <button class="filter-button" data-filter="api">Using an API</button>
           <!-- Add more filter buttons as needed -->
         </div>
         
         <div class="portfolio-section">
-          <div class="portfolio-item static">
+
+          <div class="portfolio-item static api">
             <a href="https://hakeemellis.github.io/travelthrift" target="_blank">
             <div class="card">
               <img src="images/Projects/travelthrift.jpeg" alt="Travel Thrift Preview" class="card-img-top rounded-circle" style="width: 150px; height: 150px;">
@@ -249,60 +254,19 @@
             </a>
           </div>
         
-          <div class="portfolio-section">
-            <div class="portfolio-item static">
-              <a href="https://hakeemellis.netlify.app" target="_blank">
-              <div class="card">
-                <img src="images/Projects/portfolio.jpeg" alt="Portfolio Preview" class="card-img-top rounded-circle" style="width: 150px; height: 150px;">
-                <div class="card-body">
-                  <h3>This Portfolio</h3>
-                  <br>
-                  <p>View Live</p>
-                </div>
-              </div>
-              </a>
-            </div>
-        
-          <div class="portfolio-item wordpress">
+          <div class="portfolio-item static">
+            <a href="https://hakeemellis.netlify.app" target="_blank">
             <div class="card">
-              <img src="path/to/wordpress-preview.jpg" alt="WordPress Preview" class="card-img-top rounded-circle" style="width: 150px; height: 150px;">
+              <img src="images/Projects/portfolio.jpeg" alt="Portfolio Preview" class="card-img-top rounded-circle" style="width: 150px; height: 150px;">
               <div class="card-body">
-                <h3>WordPress Project</h3>
-                <a href="https://github.io/wordpress-project" target="_blank">View Live</a>
+                <h3>This Portfolio</h3>
+                <br>
+                <p>View Live</p>
               </div>
             </div>
+            </a>
           </div>
         
-          <div class="portfolio-item wordpress">
-            <div class="card">
-              <img src="path/to/wordpress-preview.jpg" alt="WordPress Preview" class="card-img-top rounded-circle" style="width: 150px; height: 150px;">
-              <div class="card-body">
-                <h3>WordPress Project</h3>
-                <a href="https://github.io/wordpress-project" target="_blank">View Live</a>
-              </div>
-            </div>
-          </div>
-        
-          <div class="portfolio-item wordpress">
-            <div class="card">
-              <img src="path/to/wordpress-preview.jpg" alt="WordPress Preview" class="card-img-top rounded-circle" style="width: 150px; height: 150px;">
-              <div class="card-body">
-                <h3>WordPress Project</h3>
-                <a href="https://github.io/wordpress-project" target="_blank">View Live</a>
-              </div>
-            </div>
-          </div>
-        
-          <div class="portfolio-item wordpress">
-            <div class="card">
-              <img src="path/to/wordpress-preview.jpg" alt="WordPress Preview" class="card-img-top rounded-circle" style="width: 150px; height: 150px;">
-              <div class="card-body">
-                <h3>WordPress Project</h3>
-                <a href="https://github.io/wordpress-project" target="_blank">View Live</a>
-              </div>
-            </div>
-          </div>
-          <!-- Add more portfolio items -->
         </div>
         <!--Portfolio Section-->
         
