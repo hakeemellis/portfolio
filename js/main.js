@@ -250,7 +250,7 @@ form.addEventListener('submit', async (event) => {
   
 const urlParams = new URLSearchParams(window.location.search);
 if (urlParams.get('success') === 'true') {
-  alert('Form submitted successfully!');
+  alert('Information submitted successfully! Will respond within one business day :)');
 }
 
 // End of the extension code //
