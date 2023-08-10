@@ -213,6 +213,46 @@ moreButton.addEventListener('click', function () {
   }
 });
 
+
+// Contact Form Submission //
+
+const form = document.getElementById('contactForm');
+
+// submit event listener
+form.addEventListener('submit', async (event) => {
+  event.preventDefault(); // Prevent the default form submission
+
+  // using fetch method to get data
+  try {
+    const response = await fetch(form.action, {
+      method: form.method,
+      headers: {
+        'Accept': 'application/json',
+      },
+      body: new FormData(form),
+    });
+
+    // Check if the response status is OK (200)
+    if (response.ok) {
+      // Clear the form after successful submission
+      form.reset();
+      // Show success alert
+      alert('Form submitted successfully!');
+    } else {
+      // Handle error response
+      alert('An error occurred. Please try again.');
+    }
+  } catch (error) {
+    // Handle fetch error
+    alert('An error occurred. Please try again.');
+  }
+});
+  
+const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.get('success') === 'true') {
+  alert('Form submitted successfully!');
+}
+
 // End of the extension code //
 
 
