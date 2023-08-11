@@ -1,3 +1,38 @@
+/* 404 SCREEN */
+
+.custom-404-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.custom-404-text {
+  color: #fff;
+  font-size: 200px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.custom-404-sub {
+  color: #fff;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.custom-404-sub a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+
 /* LOADING SCREEN */
 
 .loading-screen {
