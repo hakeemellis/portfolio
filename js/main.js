@@ -1,9 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-  
-
-  // Hide the loading screen
-  var loadingScreen = document.querySelector('.loading-screen');
-  loadingScreen.style.display = 'none';
 
 
   // For Navigation Bar Transparency // 
@@ -70,24 +65,32 @@ window.addEventListener('scroll', function() {
       }
     });
   });
+  
 
+  // Hide the loading screen
+  var loadingScreen = document.querySelector('.loading-screen');
+  var video = document.getElementById('bgVideo');
 
-// Hero Banner Welcome Typing //
+  // Add event listener to the video element
+  video.addEventListener('loadeddata', function() {
+    loadingScreen.style.display = 'none';
+    
+    // Hero Banner Welcome Typing
+    var typingElements = document.querySelectorAll('.typing-effect');
+    var viewportHeight = window.innerHeight || document.documentElement.clientHeight;
 
-var typingElements = document.querySelectorAll('.typing-effect');
-var viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    typingElements.forEach(function(element) {
+      var position = element.getBoundingClientRect().top;
 
-typingElements.forEach(function(element) {
-  var position = element.getBoundingClientRect().top;
+      if (position < viewportHeight) {
+        element.classList.add('start-typing');
+      } else {
+        element.classList.remove('start-typing');
+      }
+    });
 
-  if (position < viewportHeight) {
-    element.classList.add('start-typing');
-  } else {
-    element.classList.remove('start-typing');
-  }
-});
-
-window.dispatchEvent(new Event('scroll'));
+    window.dispatchEvent(new Event('scroll'));
+  });
 
 
 // Super Mario JS Activation within Hero Banner //
