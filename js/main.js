@@ -256,6 +256,17 @@ if (urlParams.get('success') === 'true') {
   alert('Information submitted successfully! Will respond within one business day :)');
 }
 
+// Copyright Notice //
+  console.log(`
+  Copyright (c) 2023 Hakeem Ellis
+  All rights reserved.
+
+  This work is licensed under the terms of the Custom Code license.
+  For a copy, see https://github.com/hakeemellis/portfolio/blob/main/LICENSE.md.
+
+  Contact: utilize the contact form at https://hakeemellis.com/
+  `);
+
 // End of the extension code //
 
 
@@ -297,5 +308,17 @@ navbarToggler.addEventListener('click', function() {
     navbarTogglerIcon.style.borderWidth = '3px';
   }
 });
+
+
+  // Copyright Notice //
+  console.log(`
+  Copyright (c) 2023 Hakeem Ellis
+  All rights reserved.
+
+  This work is licensed under the terms of the Custom Code license.
+  For a copy, see https://github.com/hakeemellis/portfolio/blob/main/LICENSE.md.
+
+  Contact: utilize the contact form at https://hakeemellis.com/
+  `);
 
 });
