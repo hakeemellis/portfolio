@@ -1,4 +1,4 @@
-# portfolio
+# Portfolio
 This repository showcases my journey as an experienced web developer, specializing in creating captivating websites that seamlessly blend design and functionality. With a strong foundation in HTML, CSS, JavaScript, and a variety of other technologies, I bring visions to life through remarkable online experiences. 
 
 ## Copyright and Usage
