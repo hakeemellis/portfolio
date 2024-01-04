@@ -23,6 +23,13 @@
         <meta property="og:url" content="https://hakeemellis.com/">
         <meta property="og:type" content="website">
         <!--METADATA-->
+        <!--FIREBASE-->
+        <script src="https://www.gstatic.com/firebasejs/8.1.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.1.0/firebase-storage.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.1.0/firebase-firestore.js"></script>
+        <script src="/js/firebaseconfig.js"></script>
+        <script src="/js/firebase.js"></script>
+        <!--FIREBASE-->
         <!--STYLING-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -362,8 +369,8 @@
             <div class="portfolio-section">
 
               <!-- Add your graphic design portfolio items here with the appropriate classes -->
-              <div class="portfolio-item print digital">
-                <a href="#" target="_blank">
+              <div class="portfolio-item print digital" data-project="design1">
+                <a href="" class="portfolio-link">
                   <div class="card">
                     <img src="images/GraphicProjects/design1.jpeg" alt="Design 1 Preview" class="card-img-top rounded-circle" style="width: 150px; height: 150px;">
                     <div class="card-body">
@@ -390,6 +397,19 @@
               </div>
 
             </div>
+
+            <!-- Slideshow Modal -->
+            <div class="modal fade" id="slideshowModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-body">
+                    <div id="slideshow-container"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End of Slideshow Modal -->
+
             <!-- Graphic Design Portfolio Section -->
             <br>
             <!-- Additional Graphic Design Portfolio Section (for the MORE BUTTON) -->
@@ -456,12 +476,6 @@
     <!--MY SCRIPT-->
     <script src="/js/main.js"></script>
     <!--MY SCRIPT-->
-
-    <!--FIREBASE-->
-    <script src="/js/firebaseconfig.js"></script>
-    <script src="/js/firebase.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-storage.js"></script>
-    <!--FIREBASE-->
 
     <!--BOOTSTRAP-->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
