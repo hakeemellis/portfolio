@@ -374,6 +374,34 @@ navbarToggler.addEventListener('click', function() {
 });
 
 
+// Play Button for Hero Bar in Mobile //
+var video = document.getElementById('bgVideo');
+var playOverlay = document.getElementById('playOverlay');
+
+var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+if (isMobile) {
+  video.play().then(function () {
+    // Autoplay successful
+    playOverlay.style.display = 'none';
+  }).catch(function (error) {
+    // Autoplay failed
+    console.error('Autoplay failed:', error);
+    playOverlay.style.display = 'block';
+  });
+
+  // Add click event for the play button
+  document.getElementById('startButton').addEventListener('click', function () {
+    video.play();
+    playOverlay.style.display = 'none';
+  });
+} else {
+  // Not on mobile, hide play button overlay
+  playOverlay.style.display = 'none';
+}
+
+
+
   // Copyright Notice //
   console.log(`
   Copyright (c) 2023 Hakeem Ellis
