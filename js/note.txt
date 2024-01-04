@@ -74,3 +74,21 @@ portfolioItems.forEach((item) => {
 
 
 For straight image loading
+
+
+    // Function to show a specific image
+    function showImage(imageUrl) { // showImage(imageUrl) This carried the code
+        imagesContainer.innerHTML = ''; // Clear previous images
+
+        const img = document.createElement('img');
+        img.src = imageUrl;
+        img.alt = 'Design Preview';
+
+        // Set maximum width and height for each image
+        img.style.maxWidth = '100%';
+        img.style.maxHeight = '100%';
+
+        imagesContainer.appendChild(img);
+    }
+
+// JS function to show image only in slideshow modal
