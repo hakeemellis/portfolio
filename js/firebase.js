@@ -1,0 +1,2 @@
+const storage = firebase.storage();
+

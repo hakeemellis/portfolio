@@ -217,6 +217,70 @@ moreButton.addEventListener('click', function () {
 });
 
 
+// Add any specific JavaScript code for the Graphic Design Portfolio section if needed
+
+var graphicFilterButtons = document.querySelectorAll('#graphic-portfolio .filter-button');
+var graphicPortfolioItems = document.querySelectorAll('#graphic-portfolio .portfolio-item');
+var graphicMoreButton = document.getElementById('graphicMoreButton');
+var graphicInitialVisibleItems = 4; // Number of initial visible items
+
+// To set "All" filter option as active by default
+graphicFilterButtons[0].classList.add('active');
+
+// Show initial set of items
+showGraphicItems('all', graphicInitialVisibleItems);
+
+// Filter change
+graphicFilterButtons.forEach(function (button) {
+  button.addEventListener('click', function () {
+    var filter = button.getAttribute('data-filter');
+
+    // Remove active class from all buttons
+    graphicFilterButtons.forEach(function (btn) {
+      btn.classList.remove('active');
+    });
+
+    // Add active class to clicked button
+    button.classList.add('active');
+
+    // Show items based on the filter
+    showGraphicItems(filter, graphicInitialVisibleItems);
+
+    // Show initial set of hidden items when filter changes
+    graphicMoreButton.style.display = 'block';
+  });
+});
+
+// Function to show/hide items based on filter
+function showGraphicItems(filter, visibleItemCount) {
+  graphicPortfolioItems.forEach(function (item, index) {
+    if (filter === 'all' || item.classList.contains(filter)) {
+      item.style.display = index < visibleItemCount ? 'block' : 'none';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+}
+
+// More button click event
+graphicMoreButton.addEventListener('click', function () {
+  var hiddenGraphicItems = document.querySelectorAll('#graphic-portfolio .portfolio-item:not(.show)');
+
+  // Show hidden items
+  hiddenGraphicItems.forEach(function (item, index) {
+    if (index < graphicInitialVisibleItems) {
+      item.classList.add('show');
+      item.style.display = 'block';
+    }
+  });
+
+  // Hide more button if no more items
+  if (document.querySelectorAll('#graphic-portfolio .portfolio-item:not(.show)').length === 0) {
+    graphicMoreButton.style.display = 'none';
+  }
+});
+
+
 // Contact Form Submission //
 
 const form = document.getElementById('contactForm');

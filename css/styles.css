@@ -356,12 +356,90 @@ figcaption {
 
 .more-button {
   border: none;
-  background: none;
+  background: #000;
+  color: #fff;
   padding: 8px 16px;
   margin: 20px auto;
   border-radius: 20px;
   cursor: pointer;
 }
+
+
+/* Graphic Design Portfolio Card Styling */
+#graphic-portfolio .card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+}
+
+/* Graphic Design Portfolio Item Styling */
+#graphic-portfolio .portfolio-item {
+  flex-basis: 300px;
+  display: none;
+}
+
+#graphic-portfolio .portfolio-item.show {
+  display: block;
+}
+
+#graphic-portfolio .portfolio-item .card {
+  width: 200px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+}
+
+#graphic-portfolio .portfolio-item .card-img-top {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+#graphic-portfolio .portfolio-item h3 {
+  margin-bottom: 5px;
+  color: #333;
+}
+
+/* Graphic Design Portfolio Filter Button Styling */
+#graphic-portfolio .filter-button {
+  border: none;
+  background: none;
+  padding: 8px 16px;
+  margin-right: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  
+}
+
+#graphic-portfolio .filter-button.active {
+  background-color: #000;
+  color: #fff;
+}
+
+/* Graphic Design Portfolio More Button Styling */
+#graphic-portfolio .more-button-container {
+  text-align: center;
+  width: 100%;
+}
+
+#graphic-portfolio .more-button {
+  border: none;
+  background: #000;
+  color: #fff;
+  padding: 8px 16px;
+  margin: 20px auto;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+#graphic-portfolio .more-button:hover {
+  background-color: #555;
+}
+
 
 /* Contact Form Section */
 

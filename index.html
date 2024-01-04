@@ -78,9 +78,8 @@
 
         <!--Hero Banner-->
         <div id="home" class="hero text-white text-center d-flex align-items-center hero-container page-section">
-          <video id="bgVideo" autoplay loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
+          <video autoplay playsinline muted loop id="bgVideo" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
             <source src="video/ab.mp4" type="video/mp4">
-            <source src="path/to/video.webm" type="video/webm">
             Your browser does not support the video tag.
           </video>
           <h1 class="display-4 hero-title typing-effect" style="position: relative; z-index: 1;">Welcome to My Portfolio</h1>
@@ -331,7 +330,7 @@
         
         </div>
         <!--Portfolio Section-->
-        
+        <br>
         <!--Additional Portfolio Section (for the MORE BUTTON)-->
         <div class="more-button-container">
           <button id="moreButton" class="more-button">More</button>
@@ -339,10 +338,70 @@
         <!--Additional Portfolio Section (for the MORE BUTTON)-->
         </div>
         </div>
+        <!--End of Portfolio Section-->
 
         <br>
         <br>
-        
+
+        <!-- Graphic Design Portfolio Section -->
+        <div class="card page-section" id="graphic-portfolio">
+          <div class="card-body">
+            <h2 class="center"><b>Graphic Design Portfolio</b></h2>
+            <br>
+            <br>
+            <div class="portfolio-filter">
+              <button class="filter-button active" data-filter="all">All</button>
+              <button class="filter-button" data-filter="print">Print Design</button>
+              <button class="filter-button" data-filter="digital">Digital Design</button>
+              <!-- Add more filter buttons as needed -->
+            </div>
+
+            <div class="portfolio-section">
+
+              <!-- Add your graphic design portfolio items here with the appropriate classes -->
+              <div class="portfolio-item print digital">
+                <a href="#" target="_blank">
+                  <div class="card">
+                    <img src="images/GraphicProjects/design1.jpeg" alt="Design 1 Preview" class="card-img-top rounded-circle" style="width: 150px; height: 150px;">
+                    <div class="card-body">
+                      <h3>Design 1</h3>
+                      <br>
+                      <p>View Design</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Add your graphic design portfolio items here with the appropriate classes -->
+              <div class="portfolio-item print digital">
+                <a href="#" target="_blank">
+                  <div class="card">
+                    <img src="images/GraphicProjects/design1.jpeg" alt="Design 1 Preview" class="card-img-top rounded-circle" style="width: 150px; height: 150px;">
+                    <div class="card-body">
+                      <h3>Design 1</h3>
+                      <br>
+                      <p>View Design</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+            </div>
+            <!-- Graphic Design Portfolio Section -->
+            <br>
+            <!-- Additional Graphic Design Portfolio Section (for the MORE BUTTON) -->
+            <div class="more-button-container">
+              <button id="graphicMoreButton" class="more-button">More</button>
+            </div>
+            <!-- Additional Graphic Design Portfolio Section (for the MORE BUTTON) -->
+          </div>
+
+        </div>
+        <!-- End of Graphic Design Portfolio Section -->
+
+       <br>
+       <br>
+
         <!--Contact Me Form-->
         <section class="contact-section page-section" id="contact-me">
 
