@@ -204,15 +204,19 @@ webMoreButton.addEventListener('click', function () {
   }
 });
 
+
 // Graphic Design Portfolio Live Snippet Filter Code //
 var graphicFilterButtons = document.querySelectorAll('#graphic-portfolio .filter-button');
 var graphicPortfolioItems = document.querySelectorAll('#graphic-portfolio .portfolio-item');
 var graphicMoreButton = document.getElementById('graphicMoreButton');
 var graphicInitialVisibleItems = 4; // Number of initial visible items
+var activeFilter = 'all';
+
 
 graphicFilterButtons[0].classList.add('active');
 
-showGraphicItems('all', graphicInitialVisibleItems);
+showGraphicItems('all', graphicInitialVisibleItems); // Show initial items for 'all' filter
+
 
 graphicFilterButtons.forEach(function (button) {
   button.addEventListener('click', function () {
@@ -232,28 +236,50 @@ graphicFilterButtons.forEach(function (button) {
 
 function showGraphicItems(filter, visibleItemCount) {
   graphicPortfolioItems.forEach(function (item, index) {
-    if (filter === 'all' || item.classList.contains(filter)) {
-      item.style.display = index < visibleItemCount ? 'block' : 'none';
+    var meetsFilterCriteria = filter === 'all' || item.classList.contains(filter);
+
+    if (meetsFilterCriteria && (index < visibleItemCount || filter !== 'all')) {
+      // Show the item if it meets filter criteria and is within the visible count,
+      // or if the filter is not 'all', meaning it should always be visible for a specific filter.
+      item.style.display = 'block';
     } else {
+      // Hide the item if it doesn't meet filter criteria or is beyond the visible count.
       item.style.display = 'none';
     }
   });
 }
 
+
 graphicMoreButton.addEventListener('click', function () {
   var hiddenGraphicItems = document.querySelectorAll('#graphic-portfolio .portfolio-item:not(.show)');
 
-  hiddenGraphicItems.forEach(function (item, index) {
-    if (index < graphicInitialVisibleItems) {
+  if (activeFilter === 'all') {
+    // Show more for all items
+    hiddenGraphicItems.forEach(function (item) {
       item.classList.add('show');
       item.style.display = 'block';
-    }
-  });
+    });
+    console.log('THIS ONE')
+  } else {
+    // Show more only for items within the current filter
+    hiddenGraphicItems.forEach(function (item, index) {
+      var itemFilters = Array.from(item.classList);
 
-  if (document.querySelectorAll('#graphic-portfolio .portfolio-item:not(.show)').length === 0) {
-    graphicMoreButton.style.display = 'none';
+      if (activeFilter === 'all' || itemFilters.includes(activeFilter)) {
+        if (index >= graphicInitialVisibleItems && index < graphicInitialVisibleItems + 4) {
+          item.classList.add('show');
+          item.style.display = 'block';
+        }
+      } else {
+        item.style.display = 'none'; // Hide items not belonging to the current filter
+      }
+    });
   }
+
+  graphicMoreButton.style.display = 'none'; // Hide the "More" button after revealing all items
 });
+
+
 
 
 
