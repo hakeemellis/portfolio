@@ -153,43 +153,34 @@ window.addEventListener('scroll', function() {
 });
 
 
-// Portfolio Live Snippet Filter Code //
+// Web Design Portfolio Live Snippet Filter Code //
+var webFilterButtons = document.querySelectorAll('#portfolio .filter-button');
+var webPortfolioItems = document.querySelectorAll('#portfolio .portfolio-item');
+var webMoreButton = document.getElementById('moreButton'); // Corrected the ID
+var webInitialVisibleItems = 4; // Number of initial visible items
 
-var filterButtons = document.querySelectorAll('.filter-button');
-var portfolioItems = document.querySelectorAll('.portfolio-item');
-var moreButton = document.getElementById('moreButton');
-var initialVisibleItems = 4; // Number of initial visible items
+webFilterButtons[0].classList.add('active');
 
-// To set "All" filter option as active by default
-filterButtons[0].classList.add('active');
+showWebItems('all', webInitialVisibleItems);
 
-// Show initial set of items
-showItems('all', initialVisibleItems);
-
-// Filter change
-filterButtons.forEach(function (button) {
+webFilterButtons.forEach(function (button) {
   button.addEventListener('click', function () {
     var filter = button.getAttribute('data-filter');
 
-    // Remove active class from all buttons
-    filterButtons.forEach(function (btn) {
+    webFilterButtons.forEach(function (btn) {
       btn.classList.remove('active');
     });
 
-    // Add active class to clicked button
     button.classList.add('active');
 
-    // Show items based on the filter
-    showItems(filter, initialVisibleItems);
+    showWebItems(filter, webInitialVisibleItems);
 
-    // Show initial set of hidden items when filter changes
-    moreButton.style.display = 'block';
+    webMoreButton.style.display = 'block';
   });
 });
 
-// Function to show/hide items based on filter
-function showItems(filter, visibleItemCount) {
-  portfolioItems.forEach(function (item, index) {
+function showWebItems(filter, visibleItemCount) {
+  webPortfolioItems.forEach(function (item, index) {
     if (filter === 'all' || item.classList.contains(filter)) {
       item.style.display = index < visibleItemCount ? 'block' : 'none';
     } else {
@@ -198,60 +189,47 @@ function showItems(filter, visibleItemCount) {
   });
 }
 
-// More button click event
-moreButton.addEventListener('click', function () {
-  var hiddenItems = document.querySelectorAll('.portfolio-item:not(.show)');
+webMoreButton.addEventListener('click', function () {
+  var hiddenWebItems = document.querySelectorAll('#portfolio .portfolio-item:not(.show)');
 
-  // Show hidden items
-  hiddenItems.forEach(function (item, index) {
-    if (index < initialVisibleItems) {
+  hiddenWebItems.forEach(function (item, index) {
+    if (index < webInitialVisibleItems) {
       item.classList.add('show');
       item.style.display = 'block';
     }
   });
 
-  // Hide more button if no more items
-  if (document.querySelectorAll('.portfolio-item:not(.show)').length === 0) {
-    moreButton.style.display = 'none';
+  if (document.querySelectorAll('#portfolio .portfolio-item:not(.show)').length === 0) {
+    webMoreButton.style.display = 'none';
   }
 });
 
-
-// Add any specific JavaScript code for the Graphic Design Portfolio section if needed
-
+// Graphic Design Portfolio Live Snippet Filter Code //
 var graphicFilterButtons = document.querySelectorAll('#graphic-portfolio .filter-button');
 var graphicPortfolioItems = document.querySelectorAll('#graphic-portfolio .portfolio-item');
 var graphicMoreButton = document.getElementById('graphicMoreButton');
 var graphicInitialVisibleItems = 4; // Number of initial visible items
 
-// To set "All" filter option as active by default
 graphicFilterButtons[0].classList.add('active');
 
-// Show initial set of items
 showGraphicItems('all', graphicInitialVisibleItems);
 
-// Filter change
 graphicFilterButtons.forEach(function (button) {
   button.addEventListener('click', function () {
     var filter = button.getAttribute('data-filter');
 
-    // Remove active class from all buttons
     graphicFilterButtons.forEach(function (btn) {
       btn.classList.remove('active');
     });
 
-    // Add active class to clicked button
     button.classList.add('active');
 
-    // Show items based on the filter
     showGraphicItems(filter, graphicInitialVisibleItems);
 
-    // Show initial set of hidden items when filter changes
     graphicMoreButton.style.display = 'block';
   });
 });
 
-// Function to show/hide items based on filter
 function showGraphicItems(filter, visibleItemCount) {
   graphicPortfolioItems.forEach(function (item, index) {
     if (filter === 'all' || item.classList.contains(filter)) {
@@ -262,11 +240,9 @@ function showGraphicItems(filter, visibleItemCount) {
   });
 }
 
-// More button click event
 graphicMoreButton.addEventListener('click', function () {
   var hiddenGraphicItems = document.querySelectorAll('#graphic-portfolio .portfolio-item:not(.show)');
 
-  // Show hidden items
   hiddenGraphicItems.forEach(function (item, index) {
     if (index < graphicInitialVisibleItems) {
       item.classList.add('show');
@@ -274,11 +250,11 @@ graphicMoreButton.addEventListener('click', function () {
     }
   });
 
-  // Hide more button if no more items
   if (document.querySelectorAll('#graphic-portfolio .portfolio-item:not(.show)').length === 0) {
     graphicMoreButton.style.display = 'none';
   }
 });
+
 
 
 // Contact Form Submission //

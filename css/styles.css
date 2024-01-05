@@ -303,6 +303,7 @@ figcaption {
   border-radius: 10px;
   padding: 10px;
   text-align: center;
+  margin: 0 auto;
 }
 
 .portfolio-item .card-img-top {
