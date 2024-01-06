@@ -227,6 +227,7 @@ graphicFilterButtons.forEach(function (button) {
     });
 
     button.classList.add('active');
+    activeFilter = filter; // Update activeFilter
 
     showGraphicItems(filter, graphicInitialVisibleItems);
 
@@ -234,20 +235,27 @@ graphicFilterButtons.forEach(function (button) {
   });
 });
 
+
 function showGraphicItems(filter, visibleItemCount) {
   graphicPortfolioItems.forEach(function (item, index) {
-    var meetsFilterCriteria = filter === 'all' || item.classList.contains(filter);
+    var itemFilterClasses = Array.from(item.classList).filter(className => className !== 'portfolio-item');
+
+    var meetsFilterCriteria = filter === 'all' || itemFilterClasses.includes(filter);
 
     if (meetsFilterCriteria && (index < visibleItemCount || filter !== 'all')) {
-      // Show the item if it meets filter criteria and is within the visible count,
-      // or if the filter is not 'all', meaning it should always be visible for a specific filter.
       item.style.display = 'block';
     } else {
-      // Hide the item if it doesn't meet filter criteria or is beyond the visible count.
       item.style.display = 'none';
     }
   });
+
+  // Reset the 'show' class for proper 'more' button behavior
+  var allGraphicItems = document.querySelectorAll('#graphic-portfolio .portfolio-item');
+  allGraphicItems.forEach(function (item) {
+    item.classList.remove('show');
+  });
 }
+
 
 
 graphicMoreButton.addEventListener('click', function () {
@@ -255,22 +263,26 @@ graphicMoreButton.addEventListener('click', function () {
 
   hiddenGraphicItems.forEach(function (item, index) {
     var itemClasses = Array.from(item.classList);
+    console.log(itemClasses)
 
     // Exclude 'portfolio-item' from the itemClasses array
     var filteredClasses = itemClasses.filter(className => className !== 'portfolio-item');
+    console.log(filteredClasses);
 
     // Specify the classes you want to filter by
     var filterClasses = ['digital', 'print', 'logo']; // Add more classes as needed
-    console.log(filterClasses)
-    
+    console.log(filterClasses);
+
+    // Check if the item belongs to the current filter
+    var belongsToFilter = activeFilter === 'all' || filterClasses.includes(activeFilter);
+    console.log(belongsToFilter);
+
     // Check if any of the filter classes are present in filteredClasses
-    var meetsFilterCriteria = activeFilter === 'all' || filterClasses.some(filterClass => filteredClasses.includes(filterClass));
-    
+    var meetsFilterCriteria = belongsToFilter && (activeFilter === 'all' || filteredClasses.includes(activeFilter));
 
     if (meetsFilterCriteria) {
       item.classList.add('show');
       item.style.display = 'block';
-      
     } else {
       item.style.display = 'none'; // Hide items not belonging to the current filter
     }
@@ -278,8 +290,6 @@ graphicMoreButton.addEventListener('click', function () {
 
   graphicMoreButton.style.display = 'none'; // Hide the "More" button after revealing all items
 });
-
-
 
 
 // Contact Form Submission //
