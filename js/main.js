@@ -253,32 +253,31 @@ function showGraphicItems(filter, visibleItemCount) {
 graphicMoreButton.addEventListener('click', function () {
   var hiddenGraphicItems = document.querySelectorAll('#graphic-portfolio .portfolio-item:not(.show)');
 
-  if (activeFilter === 'all') {
-    // Show more for all items
-    hiddenGraphicItems.forEach(function (item) {
+  hiddenGraphicItems.forEach(function (item, index) {
+    var itemClasses = Array.from(item.classList);
+
+    // Exclude 'portfolio-item' from the itemClasses array
+    var filteredClasses = itemClasses.filter(className => className !== 'portfolio-item');
+
+    // Specify the classes you want to filter by
+    var filterClasses = ['digital', 'print', 'logo']; // Add more classes as needed
+    console.log(filterClasses)
+    
+    // Check if any of the filter classes are present in filteredClasses
+    var meetsFilterCriteria = activeFilter === 'all' || filterClasses.some(filterClass => filteredClasses.includes(filterClass));
+    
+
+    if (meetsFilterCriteria) {
       item.classList.add('show');
       item.style.display = 'block';
-    });
-    console.log('THIS ONE')
-  } else {
-    // Show more only for items within the current filter
-    hiddenGraphicItems.forEach(function (item, index) {
-      var itemFilters = Array.from(item.classList);
-
-      if (activeFilter === 'all' || itemFilters.includes(activeFilter)) {
-        if (index >= graphicInitialVisibleItems && index < graphicInitialVisibleItems + 4) {
-          item.classList.add('show');
-          item.style.display = 'block';
-        }
-      } else {
-        item.style.display = 'none'; // Hide items not belonging to the current filter
-      }
-    });
-  }
+      
+    } else {
+      item.style.display = 'none'; // Hide items not belonging to the current filter
+    }
+  });
 
   graphicMoreButton.style.display = 'none'; // Hide the "More" button after revealing all items
 });
-
 
 
 
