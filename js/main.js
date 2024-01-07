@@ -156,12 +156,12 @@ window.addEventListener('scroll', function() {
 // Web Design Portfolio Live Snippet Filter Code //
 var webFilterButtons = document.querySelectorAll('#portfolio .filter-button');
 var webPortfolioItems = document.querySelectorAll('#portfolio .portfolio-item');
-var webMoreButton = document.getElementById('moreButton'); // Corrected the ID
+var webMoreButton = document.getElementById('moreButton'); // Change the ID here
 var webInitialVisibleItems = 4; // Number of initial visible items
 
 webFilterButtons[0].classList.add('active');
 
-showWebItems('all', webInitialVisibleItems);
+showWebItems('all', webInitialVisibleItems); // Show initial items for 'all' filter
 
 webFilterButtons.forEach(function (button) {
   button.addEventListener('click', function () {
@@ -172,6 +172,7 @@ webFilterButtons.forEach(function (button) {
     });
 
     button.classList.add('active');
+    activeFilter = filter; // Update activeFilter
 
     showWebItems(filter, webInitialVisibleItems);
 
@@ -181,28 +182,58 @@ webFilterButtons.forEach(function (button) {
 
 function showWebItems(filter, visibleItemCount) {
   webPortfolioItems.forEach(function (item, index) {
-    if (filter === 'all' || item.classList.contains(filter)) {
-      item.style.display = index < visibleItemCount ? 'block' : 'none';
+    var itemFilterClasses = Array.from(item.classList).filter(className => className !== 'portfolio-item');
+
+    var meetsFilterCriteria = filter === 'all' || itemFilterClasses.includes(filter);
+
+    if (meetsFilterCriteria && (index < visibleItemCount || filter !== 'all')) {
+      item.style.display = 'block';
     } else {
       item.style.display = 'none';
     }
   });
+
+  // Reset the 'show' class for proper 'more' button behavior
+  var allWebItems = document.querySelectorAll('#portfolio .portfolio-item'); // Change the ID here
+  allWebItems.forEach(function (item) {
+    item.classList.remove('show');
+  });
 }
 
 webMoreButton.addEventListener('click', function () {
-  var hiddenWebItems = document.querySelectorAll('#portfolio .portfolio-item:not(.show)');
+  var hiddenWebItems = document.querySelectorAll('#portfolio .portfolio-item:not(.show)'); // Change the ID here
 
   hiddenWebItems.forEach(function (item, index) {
-    if (index < webInitialVisibleItems) {
+    var itemClasses = Array.from(item.classList);
+    console.log(itemClasses);
+
+    // Exclude 'portfolio-item' from the itemClasses array
+    var filteredClasses = itemClasses.filter(className => className !== 'portfolio-item');
+    console.log(filteredClasses);
+
+    // Specify the classes you want to filter by
+    var filterClasses = ['static', 'api', 'database']; // Add more classes as needed
+    console.log(filterClasses);
+
+    // Check if the item belongs to the current filter
+    var belongsToFilter = activeFilter === 'all' || filterClasses.includes(activeFilter);
+    console.log(belongsToFilter);
+
+    // Check if any of the filter classes are present in filteredClasses
+    var meetsFilterCriteria = belongsToFilter && (activeFilter === 'all' || filteredClasses.includes(activeFilter));
+
+    if (meetsFilterCriteria) {
       item.classList.add('show');
       item.style.display = 'block';
+    } else {
+      item.style.display = 'none'; // Hide items not belonging to the current filter
     }
   });
 
-  if (document.querySelectorAll('#portfolio .portfolio-item:not(.show)').length === 0) {
-    webMoreButton.style.display = 'none';
-  }
+  webMoreButton.style.display = 'none'; // Hide the "More" button after revealing all items
 });
+
+
 
 
 // Graphic Design Portfolio Live Snippet Filter Code //
