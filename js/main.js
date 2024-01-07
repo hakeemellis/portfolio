@@ -205,19 +205,15 @@ webMoreButton.addEventListener('click', function () {
 
   hiddenWebItems.forEach(function (item, index) {
     var itemClasses = Array.from(item.classList);
-    console.log(itemClasses);
 
     // Exclude 'portfolio-item' from the itemClasses array
     var filteredClasses = itemClasses.filter(className => className !== 'portfolio-item');
-    console.log(filteredClasses);
 
     // Specify the classes you want to filter by
     var filterClasses = ['static', 'api', 'database']; // Add more classes as needed
-    console.log(filterClasses);
 
     // Check if the item belongs to the current filter
     var belongsToFilter = activeFilter === 'all' || filterClasses.includes(activeFilter);
-    console.log(belongsToFilter);
 
     // Check if any of the filter classes are present in filteredClasses
     var meetsFilterCriteria = belongsToFilter && (activeFilter === 'all' || filteredClasses.includes(activeFilter));
@@ -294,19 +290,15 @@ graphicMoreButton.addEventListener('click', function () {
 
   hiddenGraphicItems.forEach(function (item, index) {
     var itemClasses = Array.from(item.classList);
-    console.log(itemClasses)
 
     // Exclude 'portfolio-item' from the itemClasses array
     var filteredClasses = itemClasses.filter(className => className !== 'portfolio-item');
-    console.log(filteredClasses);
 
     // Specify the classes you want to filter by
     var filterClasses = ['digital', 'print', 'logo']; // Add more classes as needed
-    console.log(filterClasses);
 
     // Check if the item belongs to the current filter
     var belongsToFilter = activeFilter === 'all' || filterClasses.includes(activeFilter);
-    console.log(belongsToFilter);
 
     // Check if any of the filter classes are present in filteredClasses
     var meetsFilterCriteria = belongsToFilter && (activeFilter === 'all' || filteredClasses.includes(activeFilter));
