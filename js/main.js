@@ -159,6 +159,19 @@ var webPortfolioItems = document.querySelectorAll('#portfolio .portfolio-item');
 var webMoreButton = document.getElementById('moreButton'); // Change the ID here
 var webInitialVisibleItems = 4; // Number of initial visible items
 
+
+// Shuffle function to randomize array order
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+// Shuffle the graphic portfolio items array
+webPortfolioItems = shuffleArray(Array.from(webPortfolioItems));
+
 webFilterButtons[0].classList.add('active');
 
 showWebItems('all', webInitialVisibleItems); // Show initial items for 'all' filter
@@ -228,7 +241,7 @@ webMoreButton.addEventListener('click', function () {
 
   webMoreButton.style.display = 'none'; // Hide the "More" button after revealing all items
 });
-
+  
 
 
 
@@ -238,6 +251,19 @@ var graphicPortfolioItems = document.querySelectorAll('#graphic-portfolio .portf
 var graphicMoreButton = document.getElementById('graphicMoreButton');
 var graphicInitialVisibleItems = 4; // Number of initial visible items
 var activeFilter = 'all';
+
+
+// Shuffle function to randomize array order
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+// Shuffle the graphic portfolio items array
+graphicPortfolioItems = shuffleArray(Array.from(graphicPortfolioItems));
 
 
 graphicFilterButtons[0].classList.add('active');
