@@ -562,6 +562,10 @@ img {
 .portfolio-item {
   flex-basis: calc(33.33% - 20px);
 }
+
+.portfolio-filter {
+  flex-wrap: wrap;
+}
   
 
 }
