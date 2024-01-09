@@ -73,7 +73,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const pdfIframe = document.createElement('iframe');
             pdfIframe.src = content.url;
             pdfIframe.style.width = '100%';
-            pdfIframe.style.height = '100vh';
+            pdfIframe.style.height = '85vh'; // Adjust the height as needed
+            pdfIframe.style.border = 'none'; // Remove iframe border
+            pdfIframe.style.overflow = 'auto'; // Enable scrolling within the iframe
             imagesContainer.appendChild(pdfIframe);
             }
     }
