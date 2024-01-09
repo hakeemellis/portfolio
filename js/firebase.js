@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
         pdfObject.data = content.url;
         pdfObject.type = 'application/pdf';
         pdfObject.width = '100%';
-        pdfObject.height = '85vh';
+        pdfObject.height = '86vh';
         imagesContainer.appendChild(pdfObject);
         }
     }
