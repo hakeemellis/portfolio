@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
             img.src = content.url;
             img.alt = 'Design Preview';
             img.style.maxWidth = '100%';
-            img.style.maxHeight = '100%';
+            img.style.maxHeight = '90vh';
             imagesContainer.appendChild(img);
         } else if (content.type === 'video') {
             const video = document.createElement('video');
