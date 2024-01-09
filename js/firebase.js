@@ -69,13 +69,13 @@ document.addEventListener('DOMContentLoaded', () => {
             video.style.maxHeight = '100%';
             imagesContainer.appendChild(video);
         } else if (content.type === 'pdf') {
-        // Embed PDF using an embed tag
-        const pdfEmbed = document.createElement('embed');
-        pdfEmbed.src = content.url;
-        pdfEmbed.type = 'application/pdf';
-        pdfEmbed.style.width = '100%';
-        pdfEmbed.style.height = '85vh'; // Adjust the height as needed
-        imagesContainer.appendChild(pdfEmbed);
+        // Embed PDF using the object tag
+        const pdfObject = document.createElement('object');
+        pdfObject.data = content.url;
+        pdfObject.type = 'application/pdf';
+        pdfObject.width = '100%';
+        pdfObject.height = '85vh';
+        imagesContainer.appendChild(pdfObject);
         }
     }
 
