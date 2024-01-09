@@ -76,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
             pdfIframe.style.height = '85vh'; // Adjust the height as needed
             pdfIframe.style.border = 'none'; // Remove iframe border
             pdfIframe.style.overflow = 'auto'; // Enable scrolling within the iframe
+            pdfIframe.seamless = 'seamless'; // Enable seamless scrolling
             imagesContainer.appendChild(pdfIframe);
             }
     }
