@@ -5,12 +5,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentImageIndex = 0;
     var modal = new bootstrap.Modal(document.getElementById('slideshowModal'));
 
-    // Function to load images or videos from Firebase Storage
+    // Function to load images, videos, and PDFs from Firebase Storage
     function loadContentFromFirebase(projectName) {
         // Clear previous content
         imagesContainer.innerHTML = '';
 
-        // Get a reference to the images or videos in the storage
+        // Get a reference to the images, videos, and PDFs in the storage
         const projectRef = storageRef.child('graphic-portfolio/' + projectName);
 
         // List all items in the project folder
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
             result.items.forEach((itemRef) => {
                 // Get the download URL for each item
                 itemRef.getDownloadURL().then((url) => {
-                    contentUrls.push({ url, type: itemRef.name.endsWith('.mp4') ? 'video' : 'image' });
+                    contentUrls.push({ url, type: getItemType(itemRef) });
 
                     // Load the first content initially
                     if (contentUrls.length === 1) {
@@ -34,7 +34,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Function to show a specific content (image or video)
+    // Function to determine the type of an item (image, video, or PDF)
+    function getItemType(itemRef) {
+        const itemName = itemRef.name.toLowerCase();
+        if (itemName.endsWith('.jpg') || itemName.endsWith('.jpeg') || itemName.endsWith('.png')) {
+            return 'image';
+        } else if (itemName.endsWith('.mp4')) {
+            return 'video';
+        } else if (itemName.endsWith('.pdf')) {
+            return 'pdf';
+        } else {
+            // Handle other types if needed
+            return 'unknown';
+        }
+    }
+
+    // Function to show a specific content (image, video, or PDF)
     function showContent(content) {
         imagesContainer.innerHTML = ''; // Clear previous content
 
@@ -53,7 +68,14 @@ document.addEventListener('DOMContentLoaded', () => {
             video.style.maxWidth = '100%';
             video.style.maxHeight = '100%';
             imagesContainer.appendChild(video);
-        }
+        } else if (content.type === 'pdf') {
+            // Embed PDF using an iframe
+            const pdfIframe = document.createElement('iframe');
+            pdfIframe.src = content.url;
+            pdfIframe.style.width = '100%';
+            pdfIframe.style.height = '100vh';
+            imagesContainer.appendChild(pdfIframe);
+            }
     }
 
     // Function to enable navigation controls
@@ -94,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Get the project name from the data attribute
             const projectName = item.getAttribute('data-project');
 
-            // Load images or videos from Firebase Storage for the selected project
+            // Load images, videos, and PDFs from Firebase Storage for the selected project
             loadContentFromFirebase(projectName);
 
             // Show the slideshow modal using Bootstrap
