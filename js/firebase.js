@@ -69,16 +69,14 @@ document.addEventListener('DOMContentLoaded', () => {
             video.style.maxHeight = '100%';
             imagesContainer.appendChild(video);
         } else if (content.type === 'pdf') {
-            // Embed PDF using an iframe
-            const pdfIframe = document.createElement('iframe');
-            pdfIframe.src = content.url;
-            pdfIframe.style.width = '100%';
-            pdfIframe.style.height = '85vh'; // Adjust the height as needed
-            pdfIframe.style.border = 'none'; // Remove iframe border
-            pdfIframe.style.overflow = 'auto'; // Enable scrolling within the iframe
-            pdfIframe.seamless = 'seamless'; // Enable seamless scrolling
-            imagesContainer.appendChild(pdfIframe);
-            }
+        // Embed PDF using an embed tag
+        const pdfEmbed = document.createElement('embed');
+        pdfEmbed.src = content.url;
+        pdfEmbed.type = 'application/pdf';
+        pdfEmbed.style.width = '100%';
+        pdfEmbed.style.height = '85vh'; // Adjust the height as needed
+        imagesContainer.appendChild(pdfEmbed);
+        }
     }
 
     // Function to enable navigation controls
