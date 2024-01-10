@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
             img.src = content.url;
             img.alt = 'Design Preview';
             img.style.maxWidth = '100%';
-            img.style.maxHeight = '90vh';
+            img.style.maxHeight = '100%';
             imagesContainer.appendChild(img);
         } else if (content.type === 'video') {
             const video = document.createElement('video');
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
         pdfEmbed.src = content.url;
         pdfEmbed.type = 'application/pdf';
         pdfEmbed.style.width = '100%';
-        pdfEmbed.style.height = '85vh'; // Adjust the height as needed
+        pdfEmbed.style.height = '100vh'; // Adjust the height as needed
         imagesContainer.appendChild(pdfEmbed);
         }
     }
