@@ -321,7 +321,7 @@ graphicMoreButton.addEventListener('click', function () {
     var filteredClasses = itemClasses.filter(className => className !== 'portfolio-item');
 
     // Specify the classes you want to filter by
-    var filterClasses = ['digital', 'print', 'logo']; // Add more classes as needed
+    var filterClasses = ['digital', 'print', 'logo', 'wireframe', 'videography']; // Add more classes as needed
 
     // Check if the item belongs to the current filter
     var belongsToFilter = activeFilter === 'all' || filterClasses.includes(activeFilter);

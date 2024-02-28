@@ -5,19 +5,28 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentImageIndex = 0;
     var modal = new bootstrap.Modal(document.getElementById('slideshowModal'));
 
-    // Function to load images, videos, and PDFs from Firebase Storage
+
+    // Function to load images or videos from Firebase Storage
     function loadContentFromFirebase(projectName) {
         // Clear previous content
         imagesContainer.innerHTML = '';
 
-        // Get a reference to the images, videos, and PDFs in the storage
+        // Get a reference to the images or videos in the storage
         const projectRef = storageRef.child('graphic-portfolio/' + projectName);
 
         // List all items in the project folder
         projectRef.listAll().then((result) => {
             const contentUrls = [];
 
-            result.items.forEach((itemRef) => {
+            // Helper function to enable navigation controls
+            function enableControls() {
+                enableNavigationControls(contentUrls);
+            }
+
+            // Counter to track loaded items
+            let loadedItems = 0;
+
+            result.items.forEach((itemRef, index) => {
                 // Get the download URL for each item
                 itemRef.getDownloadURL().then((url) => {
                     contentUrls.push({ url, type: getItemType(itemRef) });
@@ -26,11 +35,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (contentUrls.length === 1) {
                         showContent(contentUrls[0]);
                     }
+
+                    // Check if all items are loaded
+                    loadedItems++;
+                    if (loadedItems === result.items.length) {
+                        enableControls();
+                    }
                 });
             });
-
-            // Enable navigation controls after all content is loaded
-            enableNavigationControls(contentUrls);
         });
     }
 
@@ -41,6 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
             return 'image';
         } else if (itemName.endsWith('.mp4')) {
             return 'video';
+        } else if (itemName.endsWith('.gif')) {
+            return 'gif';
         } else if (itemName.endsWith('.pdf')) {
             return 'pdf';
         } else {
@@ -53,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function showContent(content) {
         imagesContainer.innerHTML = ''; // Clear previous content
 
-        if (content.type === 'image') {
+        if (content.type === 'image' || content.type === 'gif') {
             const img = document.createElement('img');
             img.src = content.url;
             img.alt = 'Design Preview';
@@ -69,13 +83,13 @@ document.addEventListener('DOMContentLoaded', () => {
             video.style.maxHeight = '100%';
             imagesContainer.appendChild(video);
         } else if (content.type === 'pdf') {
-        // Embed PDF using an embed tag
-        const pdfEmbed = document.createElement('embed');
-        pdfEmbed.src = content.url;
-        pdfEmbed.type = 'application/pdf';
-        pdfEmbed.style.width = '100%';
-        pdfEmbed.style.height = '100vh'; // Adjust the height as needed
-        imagesContainer.appendChild(pdfEmbed);
+            // Embed PDF using an embed tag
+            const pdfEmbed = document.createElement('embed');
+            pdfEmbed.src = content.url;
+            pdfEmbed.type = 'application/pdf';
+            pdfEmbed.style.width = '100%';
+            pdfEmbed.style.height = '100vh'; // Adjust the height as needed
+            imagesContainer.appendChild(pdfEmbed);
         }
     }
 
@@ -97,14 +111,16 @@ document.addEventListener('DOMContentLoaded', () => {
             showContent(contentUrls[currentImageIndex]);
 
             // Check if it's the first content to disable the previous button
-            if (currentImageIndex === 0) {
-                prevButton.disabled = true;
-            }
+            prevButton.disabled = currentImageIndex <= 0;
+
+            // Enable the next button after clicking previous
+            nextButton.disabled = false;
         });
 
         // Initially disable the previous button if there's only one content
         prevButton.disabled = contentUrls.length <= 1;
     }
+
 
     // Example usage when a portfolio item is clicked
     const portfolioItems = document.querySelectorAll('#graphic-portfolio .portfolio-item');
