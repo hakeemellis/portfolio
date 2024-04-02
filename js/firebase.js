@@ -3,48 +3,36 @@ document.addEventListener('DOMContentLoaded', () => {
     const storageRef = storage.ref();
     const imagesContainer = document.getElementById('slideshow-container');
     let currentImageIndex = 0;
+    let contentUrls = []; // Array to store image URLs
     var modal = new bootstrap.Modal(document.getElementById('slideshowModal'));
 
 
-    // Function to load images or videos from Firebase Storage
-    function loadContentFromFirebase(projectName) {
-        // Clear previous content
-        imagesContainer.innerHTML = '';
+// Function to load images or videos from Firebase Storage
+function loadContentFromFirebase(projectName) {
+    // Clear previous content
+    imagesContainer.innerHTML = '';
+    currentImageIndex = 0; // Reset current image index when loading new content
 
-        // Get a reference to the images or videos in the storage
-        const projectRef = storageRef.child('graphic-portfolio/' + projectName);
+    // Get a reference to the images or videos in the storage
+    const projectRef = storageRef.child('graphic-portfolio/' + projectName);
 
-        // List all items in the project folder
-        projectRef.listAll().then((result) => {
-            const contentUrls = [];
+    // List all items in the project folder
+    projectRef.listAll().then((result) => {
+        contentUrls = []; // Reset content URLs array
+        result.items.forEach((itemRef, index) => {
+            // Get the download URL for each item
+            itemRef.getDownloadURL().then((url) => {
+                contentUrls.push({ url, type: getItemType(itemRef) });
 
-            // Helper function to enable navigation controls
-            function enableControls() {
-                enableNavigationControls(contentUrls);
-            }
-
-            // Counter to track loaded items
-            let loadedItems = 0;
-
-            result.items.forEach((itemRef, index) => {
-                // Get the download URL for each item
-                itemRef.getDownloadURL().then((url) => {
-                    contentUrls.push({ url, type: getItemType(itemRef) });
-
-                    // Load the first content initially
-                    if (contentUrls.length === 1) {
-                        showContent(contentUrls[0]);
-                    }
-
-                    // Check if all items are loaded
-                    loadedItems++;
-                    if (loadedItems === result.items.length) {
-                        enableControls();
-                    }
-                });
+                // Load the first content initially
+                if (contentUrls.length === 1) {
+                    showContent(contentUrls[0]);
+                    enableNavigationControls(); // Call the function here
+                }
             });
         });
-    }
+    });
+}
 
     // Function to determine the type of an item (image, video, or PDF)
     function getItemType(itemRef) {
@@ -94,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Function to enable navigation controls
-    function enableNavigationControls(contentUrls) {
+    function enableNavigationControls() {
         const nextButton = document.getElementById('nextButton');
         const prevButton = document.getElementById('prevButton');
 
@@ -146,3 +134,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
