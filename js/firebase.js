@@ -7,32 +7,32 @@ document.addEventListener('DOMContentLoaded', () => {
     var modal = new bootstrap.Modal(document.getElementById('slideshowModal'));
 
 
-// Function to load images or videos from Firebase Storage
-function loadContentFromFirebase(projectName) {
-    // Clear previous content
-    imagesContainer.innerHTML = '';
-    currentImageIndex = 0; // Reset current image index when loading new content
+    // Function to load images or videos from Firebase Storage
+    function loadContentFromFirebase(projectName) {
+        // Clear previous content
+        imagesContainer.innerHTML = '';
+        currentImageIndex = 0; // Reset current image index when loading new content
 
-    // Get a reference to the images or videos in the storage
-    const projectRef = storageRef.child('graphic-portfolio/' + projectName);
+        // Get a reference to the images or videos in the storage
+        const projectRef = storageRef.child('graphic-portfolio/' + projectName);
 
-    // List all items in the project folder
-    projectRef.listAll().then((result) => {
-        contentUrls = []; // Reset content URLs array
-        result.items.forEach((itemRef, index) => {
-            // Get the download URL for each item
-            itemRef.getDownloadURL().then((url) => {
-                contentUrls.push({ url, type: getItemType(itemRef) });
+        // List all items in the project folder
+        projectRef.listAll().then((result) => {
+            contentUrls = []; // Reset content URLs array
+            result.items.forEach((itemRef, index) => {
+                // Get the download URL for each item
+                itemRef.getDownloadURL().then((url) => {
+                    contentUrls.push({ url, type: getItemType(itemRef) });
 
-                // Load the first content initially
-                if (contentUrls.length === 1) {
-                    showContent(contentUrls[0]);
-                    enableNavigationControls(); // Call the function here
-                }
+                    // Load the first content initially
+                    if (contentUrls.length === 1) {
+                        showContent(contentUrls[0]);
+                        enableNavigationControls(); // Call the function here
+                    }
+                });
             });
         });
-    });
-}
+    }
 
     // Function to determine the type of an item (image, video, or PDF)
     function getItemType(itemRef) {
