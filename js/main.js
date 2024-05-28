@@ -92,6 +92,11 @@ window.addEventListener('scroll', function() {
     window.dispatchEvent(new Event('scroll'));
   });
 
+// Hide the loading screen after a timeout
+setTimeout(function() {
+  loadingScreen.style.display = 'none';
+}, 3000);
+
 
 // Super Mario JS Activation within Hero Banner //
 

@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // Example usage when a portfolio item is clicked
-    const portfolioItems = document.querySelectorAll('#graphic-portfolio .portfolio-item');
+    const portfolioItems = document.querySelectorAll('#graphic-portfolio .portfolio-item, #uiux-portfolio .portfolio-item.data');
 
     portfolioItems.forEach((item) => {
         item.addEventListener('click', (event) => {
