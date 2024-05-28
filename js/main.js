@@ -241,8 +241,97 @@ webMoreButton.addEventListener('click', function () {
 
   webMoreButton.style.display = 'none'; // Hide the "More" button after revealing all items
 });
-  
 
+
+
+// UI/UX Portfolio Live Snippet Filter Code //
+var uiuxFilterButtons = document.querySelectorAll('#uiux-portfolio .filter-button');
+var uiuxPortfolioItems = document.querySelectorAll('#uiux-portfolio .portfolio-item');
+var uiuxMoreButton = document.getElementById('moreButton'); // Change the ID here
+var uiuxInitialVisibleItems = 4; // Number of initial visible items
+
+// Shuffle function to randomize array order
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+// Shuffle the UI/UX portfolio items array
+uiuxPortfolioItems = shuffleArray(Array.from(uiuxPortfolioItems));
+
+uiuxFilterButtons[0].classList.add('active');
+
+showUIUXItems('all', uiuxInitialVisibleItems); // Show initial items for 'all' filter
+
+uiuxFilterButtons.forEach(function (button) {
+  button.addEventListener('click', function () {
+    var filter = button.getAttribute('data-filter');
+
+    uiuxFilterButtons.forEach(function (btn) {
+      btn.classList.remove('active');
+    });
+
+    button.classList.add('active');
+    activeFilter = filter; // Update activeFilter
+
+    showUIUXItems(filter, uiuxInitialVisibleItems);
+
+    uiuxMoreButton.style.display = 'block';
+  });
+});
+
+function showUIUXItems(filter, visibleItemCount) {
+  uiuxPortfolioItems.forEach(function (item, index) {
+    var itemFilterClasses = Array.from(item.classList).filter(className => className !== 'portfolio-item');
+
+    var meetsFilterCriteria = filter === 'all' || itemFilterClasses.includes(filter);
+
+    if (meetsFilterCriteria && (index < visibleItemCount || filter !== 'all')) {
+      item.style.display = 'block';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+
+  // Reset the 'show' class for proper 'more' button behavior
+  var allUIUXItems = document.querySelectorAll('#uiux-portfolio .portfolio-item'); // Change the ID here
+  allUIUXItems.forEach(function (item) {
+    item.classList.remove('show');
+  });
+}
+
+uiuxMoreButton.addEventListener('click', function () {
+  var hiddenUIUXItems = document.querySelectorAll('#uiux-portfolio .portfolio-item:not(.show)'); // Change the ID here
+
+  hiddenUIUXItems.forEach(function (item, index) {
+    var itemClasses = Array.from(item.classList);
+
+    // Exclude 'portfolio-item' from the itemClasses array
+    var filteredClasses = itemClasses.filter(className => className !== 'portfolio-item');
+
+    // Specify the classes you want to filter by
+    var filterClasses = ['wireframe', 'prototype', 'usertesting', 'research', 'visualdesign']; // Add more classes as needed
+
+    // Check if the item belongs to the current filter
+    var belongsToFilter = activeFilter === 'all' || filterClasses.includes(activeFilter);
+
+    // Check if any of the filter classes are present in filteredClasses
+    var meetsFilterCriteria = belongsToFilter && (activeFilter === 'all' || filteredClasses.includes(activeFilter));
+
+    if (meetsFilterCriteria) {
+      item.classList.add('show');
+      item.style.display = 'block';
+    } else {
+      item.style.display = 'none'; // Hide items not belonging to the current filter
+    }
+  });
+
+  uiuxMoreButton.style.display = 'none'; // Hide the "More" button after revealing all items
+});
+  
 
 
 // Graphic Design Portfolio Live Snippet Filter Code //
