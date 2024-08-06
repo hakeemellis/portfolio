@@ -39,6 +39,9 @@
         <script src="https://kit.fontawesome.com/0520afe110.js" crossorigin="anonymous"></script>
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap" rel="stylesheet">
         <!--STYLING-->
+        <!--reCAPTCHA SETTING-->
+        <script src="https://www.google.com/recaptcha/api.js"></script>
+        <!--reCAPTCHA SETTING-->
     </head>
   
   <!--FOR NAVIGATION CONTENT-->
@@ -820,7 +823,7 @@
                 <label for="message" class="form-label">Message</label>
                 <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
               </div>
-              <button type="submit" class="btn btn-primary">Send</button>
+              <button type="submit" class="btn btn-primary g-recaptcha" data-sitekey="reCAPTCHA_site_key">Send</button>
             </form>
           </div>
           
