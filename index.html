@@ -41,6 +41,11 @@
         <!--STYLING-->
         <!--reCAPTCHA SETTING-->
         <script src="https://www.google.com/recaptcha/api.js"></script>
+        <script>
+          function onSubmit() {
+              document.getElementById('contactForm').submit();
+          }
+      </script>
         <!--reCAPTCHA SETTING-->
     </head>
   
@@ -823,7 +828,9 @@
                 <label for="message" class="form-label">Message</label>
                 <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
               </div>
-              <button type="submit" class="btn btn-primary g-recaptcha" data-sitekey="6LdmRh8qAAAAAKlIyvfXD4YpQndcQJmgshC58tcx">Send</button>
+              <button type="submit" class="btn btn-primary g-recaptcha" 
+              data-sitekey="6LdmRh8qAAAAAKlIyvfXD4YpQndcQJmgshC58tcx"
+              data-callback="onSubmit">Send</button>
             </form>
           </div>
           
