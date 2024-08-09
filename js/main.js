@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
   // For Navigation Bar Transparency // 
-window.addEventListener('scroll', function() {
+  window.addEventListener('scroll', function() {
   var navbar = document.querySelector('.navbar');
   var heroSection = document.querySelector('.hero');
   
@@ -436,43 +436,37 @@ graphicMoreButton.addEventListener('click', function () {
 
 
 // Contact Form Submission //
+  async function submitForm() {
+  const form = document.getElementById('contactForm');
+  const submitButton = document.querySelector('button[type="submit"]');
+  submitButton.disabled = true;
 
-const form = document.getElementById('contactForm');
-
-// submit event listener
-form.addEventListener('submit', async (event) => {
-  event.preventDefault(); // Prevent the default form submission
-
-  // using fetch method to get data
   try {
-    const response = await fetch(form.action, {
-      method: form.method,
-      headers: {
-        'Accept': 'application/json',
-      },
-      body: new FormData(form),
-    });
+      const response = await fetch(form.action, {
+          method: form.method,
+          headers: {
+              'Accept': 'application/json',
+          },
+          body: new FormData(form),
+      });
 
-    // Check if the response status is OK (200)
-    if (response.ok) {
-      // Clear the form after successful submission
-      form.reset();
-      // Show success alert
-      alert('Form submitted successfully!');
-    } else {
-      // Handle error response
-      alert('An error occurred. Please try again.');
-    }
+      if (response.ok) {
+          form.reset();
+          alert('Form submitted successfully!');
+      } else {
+          alert('An error occurred. Please try again.');
+      }
   } catch (error) {
-    // Handle fetch error
-    alert('An error occurred. Please try again.');
+      alert('An error occurred. Please try again.');
+  } finally {
+      submitButton.disabled = false;
   }
-});
-  
-const urlParams = new URLSearchParams(window.location.search);
-if (urlParams.get('success') === 'true') {
-  alert('Information submitted successfully! Will respond within one business day :)');
 }
+
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  grecaptcha.execute();
+});
 
 // Copyright Notice //
   console.log(`
