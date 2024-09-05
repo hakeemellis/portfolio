@@ -476,7 +476,7 @@ if (urlParams.get('success') === 'true') {
 
 // Copyright Notice //
   console.log(`
-  Copyright (c) 2023 Hakeem Ellis
+  Copyright (c) 2024 Hakeem Ellis
   All rights reserved.
 
   This work is licensed under the terms of the Custom Code license.
@@ -558,7 +558,7 @@ if (isMobile) {
 
   // Copyright Notice //
   console.log(`
-  Copyright (c) 2023 Hakeem Ellis
+  Copyright (c) 2024 Hakeem Ellis
   All rights reserved.
 
   This work is licensed under the terms of the Custom Code license.
